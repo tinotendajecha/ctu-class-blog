@@ -1,26 +1,47 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-cream: #F7F5F0;
+  --color-ink: #1A1A1A;
+  --color-brand: #2B7A4B;
+  --color-brand-light: #E8F5ED;
+  --color-brand-dark: #1d5c38;
+  --color-accent: #F5C430;
+  --color-accent-light: #FEF9E7;
+  --color-muted: #6B6B6B;
+  --color-line: #E5E1D8;
+  --color-white: #FFFFFF;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #F7F5F0;
+  --foreground: #1A1A1A;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.dot-pattern {
+  background-image: radial-gradient(circle, #2B7A4B1a 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
