@@ -16,6 +16,7 @@ export interface Student {
   bio: string;
   achievement: string;
   github?: string;
+  demo?: string;
 }
 
 export interface Project {
@@ -26,4 +27,18 @@ export interface Project {
   author: string;
   github?: string;
   demo?: string;
+  tag?: string;
+  featured?: boolean;
+}
+
+export interface Portfolio {
+  name: string;
+  role: string;
+  bio: string;
+  skills: string[];
+  specialties: string[];
+  url: string;
+  github?: string;
+  linkedin?: string;
+  twitter?: string;
 }

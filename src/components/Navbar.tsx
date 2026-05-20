@@ -6,6 +6,8 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/articles", label: "Articles" },
   { href: "/projects", label: "Projects" },
+  { href: "/portfolios", label: "Portfolios" },
+  { href: "/gallery", label: "From the Lab" },
   { href: "/student-of-month", label: "Student of the Month" },
 ];
 

@@ -53,284 +53,298 @@ Custom hooks make it trivial to share logic across components without duplicatin
 ## Conclusion
 
 Hooks are one of the most important additions to React. Start with \`useState\` and \`useEffect\`, then gradually explore \`useCallback\`, \`useMemo\`, and eventually write your own custom hooks as patterns emerge in your code.`,
-    author: "Tino Jecha",
+    author: "Tinotenda Jecha",
     date: "2026-05-10",
     category: "React",
     readTime: "6 min read",
   },
   {
-    slug: "git-workflow-best-practices",
-    title: "Git Workflow Best Practices for Student Teams",
+    slug: "how-to-start-learning-python",
+    title: "How to Start Learning Python: A Practical Roadmap",
     excerpt:
-      "Collaborating on code can get messy fast. Here are the branching strategies and commit habits our class swears by after a semester of team projects.",
-    content: `When working in a team, having a clear Git workflow is essential. Without one, you'll spend more time resolving conflicts than writing code. Here's what we've learned works well for small student teams.
+      "Python is the most beginner-friendly language in the world — and one of the most powerful. Here's a no-nonsense roadmap for absolute beginners to go from zero to writing real programs.",
+    content: `Python is the single best language to learn first. It reads almost like plain English, runs everywhere, and is used in web development, data science, AI, automation, and more. If you're starting from scratch, here's exactly how I'd tell you to begin.
 
-## Use Feature Branches
+## Why Python?
 
-Never commit directly to \`main\`. Create a new branch for every feature or fix:
+- Readable syntax that doesn't fight you
+- Massive ecosystem — there's a library for everything
+- Used heavily in AI and data engineering (which is where the industry is heading)
+- Huge community and job market
 
-\`\`\`bash
-git checkout -b feature/user-authentication
-\`\`\`
+## Step 1: Install Python
 
-This keeps \`main\` stable and makes code review easy — you review a branch before merging it.
+Go to python.org and download the latest stable version. On Windows, check the box that says "Add Python to PATH" during installation — beginners miss this constantly.
 
-## Write Meaningful Commit Messages
-
-A good commit message explains *why* the change was made, not just what. Compare:
-
-- Bad: \`fix stuff\`
-- Good: \`fix login redirect loop when token expires\`
-
-Use the imperative mood: "Add feature", "Fix bug", "Update config".
-
-## Pull Requests for Everything
-
-Even if you're working alone, opening a pull request before merging trains you to document your work and catches mistakes. In a team, PRs are mandatory — they're where code review happens.
-
-## Rebase Before Merging
-
-Before merging your branch, rebase it on \`main\` to avoid messy merge commits:
+Verify it works:
 
 \`\`\`bash
-git fetch origin
-git rebase origin/main
+python --version
 \`\`\`
 
-This keeps the history linear and much easier to read.
+## Step 2: Learn the Fundamentals
 
-## .gitignore Matters
+Spend a week or two on just these concepts:
 
-Always include a \`.gitignore\` from the start. Never commit \`node_modules\`, \`.env\` files, or build artifacts. Use [gitignore.io](https://gitignore.io) to generate one for your stack.
+**Variables and data types:**
+\`\`\`python
+name = "Tino"
+age = 22
+is_student = True
+scores = [85, 92, 78]
+\`\`\`
+
+**Functions:**
+\`\`\`python
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("Giselle"))
+\`\`\`
+
+**Loops and conditionals:**
+\`\`\`python
+for score in scores:
+    if score >= 80:
+        print(f"{score} — Pass")
+    else:
+        print(f"{score} — Try again")
+\`\`\`
+
+## Step 3: Build Something Small
+
+Don't wait until you feel "ready" — you never will. Build:
+
+- A number guessing game
+- A simple calculator
+- A script that renames files in a folder
+- A web scraper (use \`requests\` + \`BeautifulSoup\`)
+
+## Step 4: Pick a Direction
+
+Python is a gateway drug. After the basics, choose a specialisation:
+
+- **Web dev:** FastAPI or Flask
+- **Data engineering:** Pandas, Polars, web scraping
+- **AI/ML:** PyTorch, scikit-learn, LangChain
+- **Automation:** Playwright, schedule, cron jobs
+
+## Resources
+
+- **CS50P** (Harvard's free Python course) — the best beginner course, period
+- **python.org/docs** — official docs are actually readable
+- **Real Python** — excellent articles for every level
+- **freeCodeCamp** — free video courses
 
 ## Conclusion
 
-A good Git workflow is invisible when it works and painful when it doesn't. Set these habits early and your team collaborations will be dramatically smoother.`,
-    author: "Alice Moyo",
-    date: "2026-05-05",
-    category: "DevOps",
-    readTime: "5 min read",
-  },
-  {
-    slug: "css-grid-vs-flexbox",
-    title: "CSS Grid vs Flexbox: When to Use Which",
-    excerpt:
-      "Both are powerful layout tools, but they solve different problems. Learn the mental model that makes choosing between them effortless.",
-    content: `CSS Grid and Flexbox are the two modern layout systems in CSS. They're often taught as competing tools, but they're actually designed to solve different kinds of problems.
-
-## Flexbox: One Dimension
-
-Flexbox is a *one-dimensional* layout system. It's great for laying out items in a single row or column and distributing space between them.
-
-Use Flexbox when:
-- You're aligning items in a navbar
-- You want to center something vertically and horizontally
-- You're building a row of cards that wraps to a new line
-
-\`\`\`css
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-\`\`\`
-
-## CSS Grid: Two Dimensions
-
-Grid is a *two-dimensional* layout system. It lets you control both rows and columns at the same time.
-
-Use Grid when:
-- You're building the overall page layout
-- You have a card grid that needs precise column control
-- You want items to align across both axes
-
-\`\`\`css
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-\`\`\`
-
-## The Mental Model
-
-Think of it this way: if you're thinking about a *line* of items, use Flexbox. If you're thinking about a *grid* of items, use Grid. In practice, most layouts use both — Grid for the page structure, Flexbox for components inside each section.
-
-## Conclusion
-
-Don't pick one over the other. Master both. The best developers use Flexbox and Grid together, choosing whichever is right for the specific layout challenge at hand.`,
-    author: "Brian Ncube",
-    date: "2026-04-28",
-    category: "CSS",
+Start today. Install Python, open a terminal, and type \`print("Hello world")\`. That's step one. The rest follows if you keep showing up.`,
+    author: "Tinotenda Jecha",
+    date: "2026-05-14",
+    category: "Python",
     readTime: "7 min read",
   },
   {
-    slug: "typescript-for-beginners",
-    title: "TypeScript in 30 Minutes: What Every JS Developer Should Know",
+    slug: "vibecoding-masterclass",
+    title: "Vibecoding: A Masterclass in AI-Assisted Development",
     excerpt:
-      "TypeScript adds a type system on top of JavaScript. Here's what you actually need to get started without drowning in theory.",
-    content: `TypeScript is a superset of JavaScript that adds static type checking. That means TypeScript catches certain classes of bugs at *compile time* — before you ever run your code.
+      "Vibecoding is the art of building software by describing your intent to an AI and letting it handle the implementation. Here's how to do it properly — and why most people are doing it wrong.",
+    content: `In early 2025, Andrej Karpathy coined the term "vibe coding" — and the dev community has never been the same. The idea is simple: instead of writing every line yourself, you describe what you want and let the AI write it. You review, steer, and ship.
 
-## Basic Types
+I've been doing this in every project for the past year. Here's what I've learned.
 
-\`\`\`typescript
-let name: string = "Alice";
-let age: number = 22;
-let isStudent: boolean = true;
-let scores: number[] = [85, 92, 78];
+## What Vibecoding Is (and Isn't)
+
+Vibecoding is NOT just asking ChatGPT to write your code and pasting it in. That's how you get code you don't understand that breaks in production and you have no idea why.
+
+Vibecoding IS a collaborative workflow where:
+- You understand the architecture and intent
+- The AI handles the boilerplate and implementation details
+- You review, test, and steer every step
+- You remain the engineer — the AI is your very fast intern
+
+## The Right Tools
+
+- **Claude (Anthropic)** — best for architecture, reasoning, and long context
+- **Cursor** — VS Code fork with AI built deeply into the editor
+- **GitHub Copilot** — best autocomplete, tight VS Code integration
+- **v0 by Vercel** — generate React UI components from a description
+
+My current stack: Cursor for everything, Claude for complex reasoning, v0 for UI mockups.
+
+## How to Prompt Well
+
+The quality of your output is entirely determined by the quality of your input. Vague prompts produce vague code.
+
+**Bad prompt:**
+\`\`\`
+make a login form
 \`\`\`
 
-## Interfaces
-
-Interfaces define the shape of an object. This is incredibly useful when you're passing data around your app.
-
-\`\`\`typescript
-interface Student {
-  name: string;
-  age: number;
-  gpa?: number; // optional property
-}
-
-function greet(student: Student) {
-  return \`Hello, \${student.name}!\`;
-}
+**Good prompt:**
+\`\`\`
+Create a login form component in Next.js using TypeScript and Tailwind CSS.
+It should have email and password fields, a submit button, and error state handling.
+Use React Hook Form for validation. Show a loading spinner on submit.
+The form should call a handleLogin(email, password) function that I will provide.
 \`\`\`
 
-## Function Types
+## When to Vibe vs When to Grind
 
-\`\`\`typescript
-function add(a: number, b: number): number {
-  return a + b;
-}
+Vibecoding works brilliantly for:
+- Boilerplate and scaffolding
+- CRUD operations
+- UI components you've built a hundred times
+- Refactoring well-understood code
+- Writing tests
 
-const multiply = (a: number, b: number): number => a * b;
-\`\`\`
+Write it yourself when:
+- You're learning a new concept (don't skip the struggle)
+- It's a critical algorithm or security-sensitive logic
+- The AI keeps getting it wrong after 3 attempts
 
-## Union Types
+## Common Pitfalls
 
-Sometimes a value can be one of several types:
-
-\`\`\`typescript
-type Status = "active" | "inactive" | "pending";
-let status: Status = "active";
-\`\`\`
-
-## Generics
-
-Generics let you write reusable functions that work with any type:
-
-\`\`\`typescript
-function first<T>(arr: T[]): T {
-  return arr[0];
-}
-
-first([1, 2, 3]);     // returns number
-first(["a", "b"]);   // returns string
-\`\`\`
+1. **Accepting output you don't understand.** Always read the code. If you can't explain what it does, you don't own it.
+2. **Skipping tests.** AI writes bugs too. Test everything.
+3. **Prompt dependency.** Don't let vibecoding stop you from improving your own skills. Use it as an accelerator, not a replacement.
 
 ## Conclusion
 
-You don't need to learn all of TypeScript at once. Start by adding types to function parameters and return values. Add interfaces for your data structures. The rest will follow naturally as you encounter situations where the type system helps you.`,
-    author: "Fatima Dube",
-    date: "2026-04-20",
-    category: "TypeScript",
-    readTime: "8 min read",
-  },
-  {
-    slug: "rest-api-design",
-    title: "Designing Clean REST APIs: Lessons from Class Projects",
-    excerpt:
-      "After reviewing dozens of student APIs, here are the patterns that make an API intuitive and the anti-patterns that cause headaches.",
-    content: `REST API design is both an art and a science. After reviewing dozens of student APIs this semester, a few patterns consistently make APIs better — and a few anti-patterns consistently cause pain.
-
-## Use Nouns, Not Verbs in URLs
-
-Bad: \`POST /createUser\`, \`GET /getUsers\`
-Good: \`POST /users\`, \`GET /users\`
-
-The HTTP method (GET, POST, PUT, DELETE) already tells you the action. The URL should name the *resource*.
-
-## Use Proper HTTP Status Codes
-
-- \`200 OK\` — success
-- \`201 Created\` — resource was created
-- \`400 Bad Request\` — client sent invalid data
-- \`401 Unauthorized\` — not authenticated
-- \`403 Forbidden\` — authenticated but not allowed
-- \`404 Not Found\` — resource doesn't exist
-- \`500 Internal Server Error\` — something went wrong on the server
-
-## Consistent Response Shape
-
-Pick a response structure and stick to it:
-
-\`\`\`json
-{
-  "success": true,
-  "data": { ... },
-  "message": "User created successfully"
-}
-\`\`\`
-
-## Versioning
-
-Include a version in your URL from day one: \`/api/v1/users\`. This lets you make breaking changes later without breaking existing clients.
-
-## Validate Everything
-
-Never trust client input. Validate all request bodies, query params, and URL params. Return a \`400\` with a helpful message when validation fails.
-
-## Conclusion
-
-A clean API is a gift to your future self and anyone who integrates with your service. Invest the time upfront to name things well and return consistent responses — it pays dividends fast.`,
-    author: "Emmanuel Chikwanda",
-    date: "2026-04-15",
-    category: "Backend",
+Vibecoding is the most significant productivity shift in software development since Stack Overflow. Learn to use it well and you'll ship in hours what used to take days. But stay the engineer — the AI works for you, not the other way around.`,
+    author: "Tinotenda Jecha",
+    date: "2026-05-12",
+    category: "AI",
     readTime: "9 min read",
   },
   {
-    slug: "debugging-mindset",
-    title: "The Debugging Mindset: How to Solve Problems Faster",
+    slug: "ai-and-the-future-of-coding",
+    title: "AI and the Future of Software Development: A Dev's Honest Take",
     excerpt:
-      "Debugging isn't just about reading error messages. It's a systematic skill you can build. Here's the framework we teach in class.",
-    content: `Every developer spends a significant portion of their time debugging. The difference between a developer who struggles and one who breezes through bugs isn't intelligence — it's process.
+      "AI isn't going to replace developers — it's going to replace developers who don't use AI. Here's my honest perspective as someone building with LLMs every day.",
+    content: `I'm going to be direct: I think AI is the most important shift in software development since the internet. And I think a lot of developers are in denial about what's coming.
 
-## Read the Error Message
+## What's Actually Happening
 
-This sounds obvious, but most beginners skim error messages looking for the line number and ignore the rest. Read the full error message. It usually tells you exactly what went wrong.
+Large language models can now write production-quality code in most mainstream languages. They can architect systems, explain errors, write tests, and review PRs. Not perfectly — but well enough to be transformative.
 
-## Reproduce It First
+Tools like Claude, GPT-4o, and Gemini are already at a level where a skilled developer using them is dramatically more productive than one who isn't. That gap is going to widen.
 
-Before you fix anything, make sure you can reliably reproduce the bug. If you can't reproduce it, you can't verify your fix. Identify the minimum set of steps to trigger the bug.
+## The Shift in the Developer's Role
 
-## Isolate the Problem
+The developer's job is changing from "write code" to "direct and verify the output of systems that write code." This is not a downgrade — it's an upgrade. You still need to understand architecture, data structures, algorithms, security, and systems design. In fact, those skills matter more now, because you need to evaluate what the AI produces.
 
-Comment out code or use binary search to narrow down where the bug lives. Ask yourself: "Does the bug still occur if I remove X?" Keep removing things until the bug disappears — then you know the last thing you removed was the culprit.
+What matters less:
+- Memorising syntax
+- Writing boilerplate from scratch
+- Looking up how to do common operations
 
-## Use console.log Strategically
+What matters more:
+- System design and architecture
+- Understanding trade-offs
+- Knowing when AI output is wrong
+- Prompting and steering intelligently
 
-Don't just log "here" or "it reached this point". Log the *values* you care about:
+## Multi-Agent Systems
 
-\`\`\`javascript
-console.log('user before update:', user);
-updateUser(user);
-console.log('user after update:', user);
+The frontier that excites me most is multi-agent AI — where you orchestrate multiple specialised AI agents to solve complex problems together. I work with frameworks like LangChain and CrewAI daily. You can have one agent that researches, one that writes, one that reviews, and an orchestrator that manages them all.
+
+This is going to change how we build software. We're moving from "a developer writes code" to "a developer designs systems of agents that build things."
+
+## What Students Should Do Now
+
+1. Get deeply familiar with at least one AI coding tool (I recommend Cursor + Claude)
+2. Learn Python — it's the language of AI
+3. Understand the APIs: OpenAI, Anthropic, HuggingFace
+4. Build something with an LLM. Anything. A chatbot, a RAG system, an agent.
+5. Don't wait. The gap between those who've built with AI and those who haven't is already significant and growing fast.
+
+## My Honest Take
+
+Some people are scared. I get it. But every major technological shift created more jobs and opportunities than it eliminated — for those who adapted. The developers who will struggle are those who see AI as a threat to resist rather than a tool to master.
+
+I'm building with AI every single day. It's made me a better developer, not a lazier one. It removes the friction between ideas and implementation. That's a good thing.`,
+    author: "Tinotenda Jecha",
+    date: "2026-05-08",
+    category: "AI",
+    readTime: "8 min read",
+  },
+  {
+    slug: "essential-tools-for-software-developers",
+    title: "The Developer's Toolkit: Tools Every CS Student Should Be Using",
+    excerpt:
+      "After years of building projects and watching classmates struggle, here are the tools that actually move the needle — the ones I wish someone had handed me in my first year.",
+    content: `Nobody hands you the toolkit when you start. You find these tools slowly, usually after wasting time without them. Here are the ones that made the biggest difference in my development workflow — and that every student in this class should know about.
+
+## Code Editor: VS Code
+
+There is no meaningful debate here. VS Code is the editor. It's free, fast, extensible, and used professionally everywhere.
+
+**Must-have extensions:**
+- **Prettier** — auto-formats your code on save. Never argue about spacing again.
+- **ESLint** — catches bugs and bad patterns before you run the code
+- **GitLens** — see who changed what and when, right in the editor
+- **Thunder Client** — test REST APIs without leaving VS Code
+- **GitHub Copilot** — AI autocomplete (free for students)
+- **Tailwind CSS IntelliSense** — autocomplete for Tailwind classes
+
+## Version Control: Git + GitHub
+
+If you're not using Git, you're one mistake away from losing everything. Period.
+
+Learn these commands until they're muscle memory:
+\`\`\`bash
+git init
+git add .
+git commit -m "your message"
+git push origin main
+git checkout -b new-feature
+git pull origin main
 \`\`\`
 
-## Read the Stack Trace
+GitHub is where your work lives. Every project you build should be on GitHub — it's your portfolio.
 
-A stack trace is a list of function calls that led to the error. Start from the top (the error itself) and read downward until you see a file in *your* code (not a library). That's where to look first.
+## API Testing: Postman or Thunder Client
 
-## Take a Break
+Before you integrate an API into your frontend, test it in isolation. Postman lets you send HTTP requests, inspect responses, and save collections of requests for a project.
 
-Seriously. Your brain keeps working on problems in the background. A 10-minute walk has solved more bugs than hours of staring at a screen. Come back with fresh eyes.
+Thunder Client (the VS Code extension) does the same thing without leaving your editor.
+
+## Deployment: Vercel
+
+For Next.js and React projects, Vercel is magic. Connect your GitHub repo, and every push to main automatically deploys. Free tier is generous. Your project is live in minutes.
+
+For Python backends: Railway or Render.
+
+## Design: Figma
+
+Every developer should know basic Figma. You'll work with designers, you'll need to implement designs, and having a rough mockup before you code saves enormous time. The free tier is fully functional.
+
+## AI Tools: Claude and ChatGPT
+
+Use them every day. For:
+- Explaining errors you don't understand
+- Reviewing your code
+- Generating boilerplate
+- Explaining concepts in plain language
+- Writing documentation
+
+Claude (Anthropic) is my preference for longer context and nuanced reasoning. ChatGPT is great for quick questions.
+
+## Database GUI: TablePlus or DBeaver
+
+Don't interact with databases through the terminal forever. TablePlus (paid, worth it) or DBeaver (free) let you browse your database visually, run queries, and understand your data.
+
+## Note-taking: Notion
+
+Keep a developer notebook. Document what you learn, save useful snippets, track your projects. Notion is free and flexible enough to be whatever you need.
 
 ## Conclusion
 
-Debugging is a skill, not a talent. Build a systematic process and you'll solve bugs faster and with less frustration. The best debuggers are methodical, not just smart.`,
-    author: "Sara Mwangi",
-    date: "2026-04-08",
-    category: "Fundamentals",
-    readTime: "6 min read",
+Tools don't make you a developer. But the right tools remove friction, and less friction means you build more and learn faster. Start with VS Code, Git, and Postman. Add the others as you need them.`,
+    author: "Tinotenda Jecha",
+    date: "2026-05-01",
+    category: "Tools",
+    readTime: "8 min read",
   },
 ];

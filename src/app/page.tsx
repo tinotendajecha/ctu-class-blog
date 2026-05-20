@@ -2,9 +2,44 @@ import Link from "next/link";
 import ArticleCard from "@/components/ArticleCard";
 import ProjectCard from "@/components/ProjectCard";
 import StudentSpotlight from "@/components/StudentSpotlight";
+import StoriesBar from "@/components/StoriesBar";
+import FilmStrip from "@/components/FilmStrip";
+import HeroCollage from "@/components/HeroCollage";
+import FloatingCode from "@/components/FloatingCode";
+import TerminalWidget from "@/components/TerminalWidget";
+import CountUpStat from "@/components/CountUpStat";
 import { articles } from "@/data/articles";
 import { students } from "@/data/students";
 import { projects } from "@/data/projects";
+import { sessions } from "@/data/gallery";
+import type { HeroPhoto } from "@/components/HeroCollage";
+
+const heroPhotos: HeroPhoto[] = [
+  {
+    src: sessions[1].photos[1].src,
+    alt: "Student in class giving finger guns",
+    baseRotate: 3,
+    depth: 1,
+    positionClasses: "top-4 left-0",
+    sizeClasses: "w-44 h-56 md:w-52 md:h-64",
+  },
+  {
+    src: sessions[0].photos[5].src,
+    alt: "Student coding with split view on screen",
+    baseRotate: -4,
+    depth: 2,
+    positionClasses: "top-0 right-0",
+    sizeClasses: "w-40 h-52 md:w-48 md:h-60",
+  },
+  {
+    src: sessions[1].photos[4].src,
+    alt: "Student smiling while working on laptop",
+    baseRotate: 1,
+    depth: 1.5,
+    positionClasses: "bottom-0 left-1/2 -translate-x-1/2",
+    sizeClasses: "w-48 h-60 md:w-56 md:h-72",
+  },
+];
 
 export default function HomePage() {
   const latestStudent = students[0];
@@ -13,10 +48,15 @@ export default function HomePage() {
 
   return (
     <main>
-      {/* Hero */}
+      {/* ── Hero ── */}
       <section className="relative overflow-hidden bg-cream dot-pattern">
-        <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
+        {/* Floating code symbols — behind content */}
+        <FloatingCode />
+
+        <div className="max-w-6xl mx-auto px-6 py-16 md:py-24 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
+
+            {/* Left: text + terminal */}
             <div>
               <span className="inline-block text-xs font-bold uppercase tracking-widest text-brand mb-6 px-3 py-1.5 bg-brand-light rounded-full">
                 CTU · Software Development Class
@@ -29,9 +69,9 @@ export default function HomePage() {
                 <span className="text-brand">learn.</span>
               </h1>
               <p className="text-muted text-lg leading-relaxed mb-8 max-w-md">
-                Articles, projects, and spotlights from the CTU software development class — real students, real work, real lessons.
+                Articles, projects, and real moments from our software development class — built by students, for students.
               </p>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 mb-10">
                 <Link
                   href="/articles"
                   className="px-6 py-3 bg-brand text-white font-semibold rounded-full hover:bg-brand-dark transition-colors shadow-md"
@@ -39,36 +79,70 @@ export default function HomePage() {
                   Read Articles
                 </Link>
                 <Link
-                  href="/projects"
+                  href="/gallery"
                   className="px-6 py-3 bg-white text-ink font-semibold rounded-full border border-line hover:border-brand hover:text-brand transition-colors"
                 >
-                  See Projects
+                  From the Lab
                 </Link>
               </div>
+
+              {/* Animated count-up stats */}
+              <div className="flex items-center gap-6 flex-wrap mb-10">
+                <CountUpStat target={articles.length} label="Articles" />
+                <CountUpStat target={projects.length} label="Projects" />
+                <CountUpStat target={sessions.length} label="Sessions" />
+              </div>
+
+              {/* Terminal widget */}
+              <TerminalWidget />
             </div>
 
-            {/* Stats panel */}
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { value: articles.length, label: "Articles Published", cls: "bg-brand text-white" },
-                { value: projects.length, label: "Student Projects", cls: "bg-accent text-ink" },
-                { value: students.length, label: "Students Spotlighted", cls: "bg-white text-ink border border-line" },
-                { value: "∞", label: "Things to Learn", cls: "bg-ink text-white" },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className={`rounded-2xl p-6 ${stat.cls} flex flex-col justify-between min-h-[120px]`}
-                >
-                  <span className="text-4xl font-black leading-none">{stat.value}</span>
-                  <span className="text-sm font-medium opacity-80 leading-snug mt-2">{stat.label}</span>
-                </div>
-              ))}
-            </div>
+            {/* Right: animated photo collage */}
+            <HeroCollage photos={heroPhotos} />
           </div>
         </div>
       </section>
 
-      {/* Student of the Month teaser */}
+      {/* ── Stories Bar ── */}
+      <section className="border-b border-line bg-white">
+        <div className="max-w-6xl mx-auto px-6 py-6">
+          <div className="flex items-center gap-6">
+            <div className="flex-shrink-0">
+              <p className="text-ink font-bold text-sm leading-tight">Session</p>
+              <p className="text-muted text-xs">Highlights</p>
+            </div>
+            <div className="w-px h-10 bg-line flex-shrink-0" />
+            <StoriesBar sessions={sessions} />
+          </div>
+        </div>
+      </section>
+
+      {/* ── Film Strip ── */}
+      <section className="bg-cream py-12">
+        <div className="max-w-6xl mx-auto px-6 mb-6">
+          <div className="flex items-end justify-between">
+            <div>
+              <p className="text-brand text-xs font-bold uppercase tracking-widest mb-1">17 photos</p>
+              <h2 className="text-ink font-black text-2xl md:text-3xl">From the Lab</h2>
+            </div>
+            <Link
+              href="/gallery"
+              className="text-brand font-semibold text-sm hover:underline flex items-center gap-1 flex-shrink-0"
+            >
+              Full gallery
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+        <div className="pl-6 max-w-6xl mx-auto">
+          <FilmStrip />
+        </div>
+        <p className="text-center text-muted text-xs mt-4">← drag to scroll →</p>
+      </section>
+
+      {/* ── Student of the Month teaser ── */}
       <section className="bg-ink relative overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-10" />
         <div className="max-w-6xl mx-auto px-6 py-16 relative">
@@ -104,7 +178,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Articles */}
+      {/* ── Featured Articles ── */}
       <section className="max-w-6xl mx-auto px-6 py-20">
         <div className="flex items-end justify-between mb-10">
           <div>
@@ -132,7 +206,7 @@ export default function HomePage() {
         <div className="h-px bg-line" />
       </div>
 
-      {/* Featured Projects */}
+      {/* ── Featured Projects ── */}
       <section className="max-w-6xl mx-auto px-6 py-20">
         <div className="flex items-end justify-between mb-10">
           <div>
@@ -156,7 +230,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Banner */}
+      {/* ── CTA Banner ── */}
       <section className="bg-brand-light border-y border-line">
         <div className="max-w-6xl mx-auto px-6 py-16 text-center">
           <span className="text-accent text-3xl mb-4 block font-black">✦</span>
