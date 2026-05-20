@@ -18,26 +18,14 @@ const heroPhotos: HeroPhoto[] = [
   {
     src: sessions[1].photos[1].src,
     alt: "Student in class giving finger guns",
-    baseRotate: 3,
-    depth: 1,
-    positionClasses: "top-4 left-0",
-    sizeClasses: "w-44 h-56 md:w-52 md:h-64",
   },
   {
     src: sessions[0].photos[5].src,
     alt: "Student coding with split view on screen",
-    baseRotate: -4,
-    depth: 2,
-    positionClasses: "top-0 right-0",
-    sizeClasses: "w-40 h-52 md:w-48 md:h-60",
   },
   {
     src: sessions[1].photos[4].src,
     alt: "Student smiling while working on laptop",
-    baseRotate: 1,
-    depth: 1.5,
-    positionClasses: "bottom-0 left-1/2 -translate-x-1/2",
-    sizeClasses: "w-48 h-60 md:w-56 md:h-72",
   },
 ];
 

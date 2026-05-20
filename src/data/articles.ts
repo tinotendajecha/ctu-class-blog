@@ -54,9 +54,11 @@ Custom hooks make it trivial to share logic across components without duplicatin
 
 Hooks are one of the most important additions to React. Start with \`useState\` and \`useEffect\`, then gradually explore \`useCallback\`, \`useMemo\`, and eventually write your own custom hooks as patterns emerge in your code.`,
     author: "Tinotenda Jecha",
+    authorRole: "Facilitator",
     date: "2026-05-10",
     category: "React",
     readTime: "6 min read",
+    tags: ["JavaScript", "React"],
   },
   {
     slug: "how-to-start-learning-python",
@@ -140,9 +142,11 @@ Python is a gateway drug. After the basics, choose a specialisation:
 
 Start today. Install Python, open a terminal, and type \`print("Hello world")\`. That's step one. The rest follows if you keep showing up.`,
     author: "Tinotenda Jecha",
+    authorRole: "Facilitator",
     date: "2026-05-14",
     category: "Python",
     readTime: "7 min read",
+    tags: ["Python"],
   },
   {
     slug: "vibecoding-masterclass",
@@ -213,9 +217,11 @@ Write it yourself when:
 
 Vibecoding is the most significant productivity shift in software development since Stack Overflow. Learn to use it well and you'll ship in hours what used to take days. But stay the engineer — the AI works for you, not the other way around.`,
     author: "Tinotenda Jecha",
+    authorRole: "Facilitator",
     date: "2026-05-12",
     category: "AI",
     readTime: "9 min read",
+    tags: ["AI", "JavaScript", "Python"],
   },
   {
     slug: "ai-and-the-future-of-coding",
@@ -265,9 +271,11 @@ Some people are scared. I get it. But every major technological shift created mo
 
 I'm building with AI every single day. It's made me a better developer, not a lazier one. It removes the friction between ideas and implementation. That's a good thing.`,
     author: "Tinotenda Jecha",
+    authorRole: "Facilitator",
     date: "2026-05-08",
     category: "AI",
     readTime: "8 min read",
+    tags: ["AI", "Python"],
   },
   {
     slug: "essential-tools-for-software-developers",
@@ -343,8 +351,10 @@ Keep a developer notebook. Document what you learn, save useful snippets, track 
 
 Tools don't make you a developer. But the right tools remove friction, and less friction means you build more and learn faster. Start with VS Code, Git, and Postman. Add the others as you need them.`,
     author: "Tinotenda Jecha",
+    authorRole: "Facilitator",
     date: "2026-05-01",
     category: "Tools",
     readTime: "8 min read",
+    tags: ["Git", "JavaScript", "Python"],
   },
 ];

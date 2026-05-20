@@ -7,6 +7,8 @@ export interface Article {
   date: string;
   category: string;
   readTime: string;
+  tags?: string[];
+  authorRole?: string;
 }
 
 export interface Student {

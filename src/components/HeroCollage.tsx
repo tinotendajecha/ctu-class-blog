@@ -1,15 +1,35 @@
 "use client";
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 export interface HeroPhoto {
   src: string;
   alt: string;
-  baseRotate: number; // degrees
-  depth: number;      // parallax multiplier — higher = moves more
-  positionClasses: string;
-  sizeClasses: string;
 }
+
+const SLOTS = [
+  {
+    positionClasses: "top-4 left-0",
+    sizeClasses: "w-44 h-56 md:w-52 md:h-64",
+    rotate: 3,
+    depth: 4,   // shadow depth only
+    zIndex: 1,
+  },
+  {
+    positionClasses: "top-0 right-0",
+    sizeClasses: "w-40 h-52 md:w-48 md:h-60",
+    rotate: -4,
+    depth: 6,
+    zIndex: 2,
+  },
+  {
+    positionClasses: "bottom-0 left-1/2 -translate-x-1/2",
+    sizeClasses: "w-48 h-60 md:w-56 md:h-72",
+    rotate: 1,
+    depth: 8,
+    zIndex: 3,
+  },
+];
 
 function easeOutBack(t: number): number {
   const c1 = 1.4;
@@ -22,12 +42,12 @@ const DROP_MS    = 900;
 
 export default function HeroCollage({ photos }: { photos: HeroPhoto[] }) {
   const [dropProgress, setDropProgress] = useState<number[]>(photos.map(() => 0));
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
-  const containerRef = useRef<HTMLDivElement>(null);
-  const rafRef       = useRef<number>(0);
-  const startRef     = useRef<number>(0);
+  // slotOrder[slotIndex] = photoIndex — which photo sits in each slot
+  const [slotOrder, setSlotOrder] = useState<number[]>(photos.map((_, i) => i));
+  const rafRef   = useRef<number>(0);
+  const startRef = useRef<number>(0);
 
-  // ── Drop-in animation ──────────────────────────────────────
+  // Drop-in animation
   useEffect(() => {
     const total = DROP_MS + STAGGER_MS * (photos.length - 1);
 
@@ -36,8 +56,7 @@ export default function HeroCollage({ photos }: { photos: HeroPhoto[] }) {
       const elapsed = now - startRef.current;
 
       const progress = photos.map((_, i) => {
-        const photoStart = i * STAGGER_MS;
-        const t = (elapsed - photoStart) / DROP_MS;
+        const t = (elapsed - i * STAGGER_MS) / DROP_MS;
         return t <= 0 ? 0 : Math.min(easeOutBack(Math.min(t, 1)), 1);
       });
 
@@ -49,43 +68,43 @@ export default function HeroCollage({ photos }: { photos: HeroPhoto[] }) {
     return () => cancelAnimationFrame(rafRef.current);
   }, [photos.length]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // ── Mouse parallax ─────────────────────────────────────────
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    const el = containerRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    setMouse({
-      x: (e.clientX - rect.left - rect.width  / 2) / (rect.width  / 2),
-      y: (e.clientY - rect.top  - rect.height / 2) / (rect.height / 2),
-    });
-  }, []);
+  const allDropped = dropProgress.every((d) => d >= 1);
 
-  useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [handleMouseMove]);
+  const handleTap = () => {
+    if (!allDropped) return;
+    // Rotate all photos one slot forward: [a,b,c] → [c,a,b]
+    setSlotOrder(([a, b, c]) => [c, a, b]);
+  };
 
   return (
-    <div ref={containerRef} className="relative h-80 md:h-[420px] hidden md:block select-none">
-      {photos.map((photo, i) => {
-        const drop = dropProgress[i];
+    <div
+      className="relative h-80 md:h-[420px] hidden md:block select-none"
+      onClick={handleTap}
+      title="Tap to swap photos"
+    >
+      {SLOTS.map((slot, i) => {
+        const photo = photos[slotOrder[i]];
+        const drop  = dropProgress[i];
         const dropY = (1 - drop) * -90;
         const dropScale = 0.82 + 0.18 * drop;
-        const opacity = Math.min(drop * 4, 1);
-        const tx = mouse.x * photo.depth * 16 * drop;
-        const ty = mouse.y * photo.depth * 10 * drop;
-        const extraRotate = mouse.x * photo.depth * 2 * drop;
+        const opacity   = Math.min(drop * 4, 1);
 
         return (
           <div
             key={i}
-            className={`absolute ${photo.positionClasses} ${photo.sizeClasses} rounded-2xl overflow-hidden border-[5px] border-white`}
+            className={[
+              "absolute",
+              slot.positionClasses,
+              slot.sizeClasses,
+              "rounded-2xl overflow-hidden border-[5px] border-white",
+              allDropped ? "cursor-pointer hover:scale-[1.03] transition-transform duration-200" : "",
+            ].join(" ")}
             style={{
               opacity,
-              boxShadow: `0 ${8 + photo.depth * 4}px ${24 + photo.depth * 8}px rgba(0,0,0,${0.12 + photo.depth * 0.04})`,
-              transform: `translate(${tx}px, ${ty + dropY}px) rotate(${photo.baseRotate + extraRotate}deg) scale(${dropScale})`,
-              transition: drop >= 1 ? "transform 0.14s ease-out" : "none",
-              zIndex: i + 1,
+              boxShadow: `0 ${8 + slot.depth}px ${24 + slot.depth * 2}px rgba(0,0,0,${0.12 + slot.depth * 0.01})`,
+              transform: `translateY(${dropY}px) rotate(${slot.rotate}deg) scale(${dropScale})`,
+              transition: drop < 1 ? "none" : "transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.35s ease",
+              zIndex: slot.zIndex,
             }}
           >
             <Image
@@ -99,6 +118,13 @@ export default function HeroCollage({ photos }: { photos: HeroPhoto[] }) {
           </div>
         );
       })}
+
+      {/* Tap hint — fades out once user has tapped */}
+      {allDropped && (
+        <span className="absolute bottom-2 right-2 text-[10px] text-ink/30 font-medium pointer-events-none">
+          tap to swap
+        </span>
+      )}
 
       {/* Decorative glows */}
       <div className="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-accent opacity-25 blur-3xl pointer-events-none animate-float" />

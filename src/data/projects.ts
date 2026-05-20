@@ -24,16 +24,6 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: "code-red-studios",
-    title: "Code Red Studios",
-    description:
-      "A video streaming platform built for independent creator monetisation. Features content management, creator profiles, and a modern streaming UI. Built with Next.js and designed to give creators a self-hosted alternative to mainstream platforms.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL"],
-    author: "Tinotenda Jecha",
-    tag: "Full Stack",
-    featured: false,
-  },
-  {
     id: "smart-recruit",
     title: "Smart Recruit",
     description:

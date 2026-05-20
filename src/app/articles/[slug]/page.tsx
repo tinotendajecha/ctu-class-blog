@@ -119,7 +119,9 @@ export default async function ArticleDetailPage({ params }: Props) {
           <div>
             <p className="text-xs text-brand font-semibold uppercase tracking-wide mb-0.5">Written by</p>
             <p className="text-ink font-bold text-lg">{article.author}</p>
-            <p className="text-muted text-sm">CTU Software Development Student</p>
+            <p className="text-muted text-sm">
+              {article.authorRole ?? "CTU Software Development Student"}
+            </p>
           </div>
         </div>
       </div>
