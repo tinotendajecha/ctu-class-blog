@@ -24,13 +24,36 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: "smart-recruit",
-    title: "Smart Recruit",
+    id: "pixel-play",
+    title: "Pixel Play — Browser Games Platform",
     description:
-      "An AI-powered applicant tracking system that uses generative AI and multi-agent analysis to streamline the hiring pipeline. Agents analyse CVs, score candidates, and surface insights — dramatically reducing manual review time for hiring teams.",
-    tech: ["Next.js", "Python", "LangChain", "FastAPI", "PostgreSQL"],
-    author: "Tinotenda Jecha",
-    tag: "AI/ML",
+      "A browser-based gaming platform featuring a collection of pixel-style games you can play straight from the browser. Clean, playful UI with a games library page and smooth in-game experience. A fun project that blends creativity with front-end engineering.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    author: "Giselle",
+    demo: "https://pixel-play-beta.vercel.app/games.html",
+    tag: "Full Stack",
+    featured: false,
+  },
+  {
+    id: "gym-system",
+    title: "The Gym System",
+    description:
+      "A gym management web application for tracking members, sessions, and schedules. Built as a practical full-stack project to solve a real operational problem — giving gym staff a clean interface to manage day-to-day operations without spreadsheets.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    author: "Jayden Deysel",
+    demo: "https://thee-gym-system.vercel.app",
+    tag: "Full Stack",
+    featured: false,
+  },
+  {
+    id: "for-honor-retry",
+    title: "For Honor — Retry",
+    description:
+      "A web-based interactive project by Braiden Ferreira, combining game mechanics and front-end engineering. Built and iterated through multiple versions as part of class practical work, showcasing persistence and rapid prototyping skills.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    author: "Braiden Ferreira",
+    demo: "https://for-honor-retry-1-0.vercel.app/",
+    tag: "Full Stack",
     featured: false,
   },
 ];

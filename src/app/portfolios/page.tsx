@@ -12,6 +12,7 @@ const specialtyColors: Record<string, string> = {
   "Data Engineering": "bg-orange-50 text-orange-700",
   "EdTech": "bg-accent-light text-amber-700",
   "Mobile": "bg-blue-50 text-blue-700",
+  "Frontend": "bg-pink-50 text-pink-700",
 };
 
 export default function PortfoliosPage() {

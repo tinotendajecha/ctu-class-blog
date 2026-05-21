@@ -8,6 +8,7 @@ import HeroCollage from "@/components/HeroCollage";
 import FloatingCode from "@/components/FloatingCode";
 import TerminalWidget from "@/components/TerminalWidget";
 import CountUpStat from "@/components/CountUpStat";
+import ContributorBoard from "@/components/ContributorBoard";
 import { articles } from "@/data/articles";
 import { students } from "@/data/students";
 import { projects } from "@/data/projects";
@@ -217,6 +218,9 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* ── Contributor Leaderboard ── */}
+      <ContributorBoard />
 
       {/* ── CTA Banner ── */}
       <section className="bg-brand-light border-y border-line">
