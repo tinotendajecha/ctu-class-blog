@@ -2,17 +2,12 @@ import { Portfolio } from "@/lib/types";
 
 export const portfolios: Portfolio[] = [
   {
-    name: "Tinotenda Jecha",
-    role: "Full-Stack Developer & AI Enthusiast",
-    bio: "Building solutions that bring real value. Specialises in Next.js, Python, and intelligent systems — from multi-agent automation to full-stack web applications.",
-    skills: [
-      "React", "Next.js", "TypeScript", "Python", "Node.js",
-      "FastAPI", "LangChain", "PostgreSQL", "MongoDB", "AWS", "Docker",
-    ],
-    specialties: ["Full Stack", "AI/ML", "Multi-Agent Systems"],
-    url: "https://dev-tino.vercel.app/",
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
+    name: "Giselle",
+    role: "Software Development Student",
+    bio: "Data engineer and creative developer behind TechPulse and Pixel Play. Passionate about building tools that make information accessible — from live news scrapers to browser-based games.",
+    skills: ["Python", "JavaScript", "HTML", "CSS", "Web Scraping", "Git", "Vercel"],
+    specialties: ["Data Engineering", "Full Stack", "Frontend"],
+    url: "https://giselle-portfolio-peach.vercel.app/",
   },
   {
     name: "Lihle Dyani",
@@ -37,5 +32,18 @@ export const portfolios: Portfolio[] = [
     skills: ["HTML", "CSS", "JavaScript", "React", "Git"],
     specialties: ["Full Stack", "Frontend"],
     url: "https://xantilomzi-portfolio.vercel.app/",
+  },
+  {
+    name: "Tinotenda Jecha",
+    role: "Full-Stack Developer & AI Enthusiast",
+    bio: "Building solutions that bring real value. Specialises in Next.js, Python, and intelligent systems — from multi-agent automation to full-stack web applications.",
+    skills: [
+      "React", "Next.js", "TypeScript", "Python", "Node.js",
+      "FastAPI", "LangChain", "PostgreSQL", "MongoDB", "AWS", "Docker",
+    ],
+    specialties: ["Full Stack", "AI/ML", "Multi-Agent Systems"],
+    url: "https://dev-tino.vercel.app/",
+    github: "https://github.com",
+    linkedin: "https://linkedin.com",
   },
 ];
